@@ -3,21 +3,25 @@ export const alumno = {
     
     <div class="d-flex flex-column gap-4 w-100">
     <div class="border w-100 p-2">
-      <div>
-        <input class="form-control mb-3" type="text" id="tarea" placeholder="Introduce tu tarea">
-        <button class="addTarea btn btn-success ">Añadir tarea</button>
-      </div>
+        <div>
+            <input class="form-control mb-3" type="text" id="tarea" placeholder="Introduce tu tarea">
+            <input class="form-control mb-3" type="text" id="aula" placeholder="Aula">
+            <input class="form-control mb-3" type="text" id="grupo" placeholder="Grupo">
+            <input class="form-control mb-3" type="text" id="ordenador" placeholder="Ordenador">
+            <textarea class="form-control mb-3" id="descripcion" placeholder="Descripción"></textarea>
+            <button class="addTarea btn btn-success ">Añadir tarea</button>
+        </div>
     </div>
     <div class="border w-100 p-2">
-    <h3>Tareas pendientes</h3>
-    <div id="tareasPendientes">
+        <h3>Tareas pendientes</h3>
+        <div id="tareasPendientes"></div>
     </div>
-    </div>
-    <div class="border w-100 p-2"><h3>Tareas completadas</h3>
-      <div id="tareasCompletadas">
-      </div>
+    <div class="border w-100 p-2">
+        <h3>Tareas completadas</h3>
+        <div id="tareasCompletadas"></div>
     </div>
 </div>
+
     `,
     script: () =>{
         //Base de datos
@@ -112,6 +116,35 @@ export const alumno = {
         })
         
 
+// Función para agregar una nueva tarea
+function agregarTarea() {
+    const tareaInput = document.getElementById('tarea');
+    const aulaInput = document.getElementById('aula');
+    const grupoInput = document.getElementById('grupo');
+    const ordenadorInput = document.getElementById('ordenador');
+    const descripcionInput = document.getElementById('descripcion');
+
+    const nuevaTarea = {
+        tarea: tareaInput.value,
+        aula: aulaInput.value,
+        grupo: grupoInput.value,
+        ordenador: ordenadorInput.value,
+        descripcion: descripcionInput.value,
+        completada: false
+    };
+
+    // Aquí puedes guardar la nueva tarea en el lugar correspondiente, por ejemplo, en localStorage o en una base de datos.
+    // Ejemplo de cómo guardarla en localStorage:
+    let tareasPendientes = JSON.parse(localStorage.getItem('tareasPendientes')) || [];
+    tareasPendientes.push(nuevaTarea);
+    localStorage.setItem('tareasPendientes', JSON.stringify(tareasPendientes));
+
+    // Luego, puedes actualizar la interfaz o realizar cualquier otra acción necesaria.
+    // Por ejemplo, puedes mostrar la nueva tarea en la lista de tareas pendientes.
+}
+
+// Evento para agregar una tarea al hacer clic en el botón "Añadir tarea"
+document.querySelector('.addTarea').addEventListener('click', agregarTarea);
 
     }
 }
