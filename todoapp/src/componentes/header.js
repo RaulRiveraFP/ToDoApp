@@ -41,7 +41,7 @@ export const header = {
         document.querySelector('.panelHeader').addEventListener('click', () => {
             console.log('test');
             document.querySelector('main').innerHTML = admin.template;
-            admin.script()
+            admin.script(9)
         });
     }
 }

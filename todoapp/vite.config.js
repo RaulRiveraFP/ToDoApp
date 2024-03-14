@@ -5,7 +5,7 @@ export default defineConfig({
   base: "./", // Indicamos que use el . para indicar la carpeta actual
   publicDir: "../public", // Indicamos donde tendremos los archivos públicos, como imágenes, etc
   build: {
-    outDir: "../dist", // Indicamos donde queremos que se cree la carpeta de distribución 
+    outDir: "./dist", // Indicamos donde queremos que se cree la carpeta de distribución 
     assetsDir: "assets"
   },
   plugins: []
