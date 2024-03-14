@@ -1,8 +1,8 @@
-import { header } from "./componentes/header.js";
-import { alumno } from './vistas/alumno.js';
-import { admin } from './vistas/admin.js';
-import { login } from "./vistas/login.js";
-import Usuarios from "./bd/ususario.js";
+import { header } from "./src/componentes/header.js";
+import { alumno } from './src/vistas/alumno.js';
+import { admin } from './src/vistas/admin.js';
+import { login } from "./src/vistas/login.js";
+import Usuarios from "./src/bd/ususario.js";
 
 // Función para cargar la vista según el rol del usuario
 function cargarVistaSegunRol(email) {
